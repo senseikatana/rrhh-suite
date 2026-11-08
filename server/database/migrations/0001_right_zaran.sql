@@ -1,0 +1,1 @@
+CREATE INDEX "clock_org_date_idx" ON "clock_events" USING btree ("orgId","occurredAt");

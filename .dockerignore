@@ -1,0 +1,11 @@
+node_modules
+.nuxt
+.output
+data
+backups
+coverage
+test-results
+playwright-report
+.git
+.env
+*.log

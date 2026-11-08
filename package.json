@@ -1,0 +1,64 @@
+{
+  "name": "rrhh-suite",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run server/database/migrate.ts",
+    "db:seed": "bun run server/database/seed.ts",
+    "db:reset": "bun run server/database/reset.ts && bun run db:migrate && bun run db:seed",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint .",
+    "backup:dump": "bash scripts/backup.sh",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1164.0",
+    "@aws-sdk/s3-request-presigner": "^3.1164.0",
+    "@neon/config": "^1.13.0",
+    "@neon/env": "^2.1.0",
+    "@neondatabase/neon-js": "^0.9.0-beta",
+    "@nuxt/ui": "^4.12.0",
+    "better-auth": "^1.7.18",
+    "date-fns": "^4.4.0",
+    "date-fns-tz": "^3.2.0",
+    "dotenv": "^18.0.9",
+    "drizzle-orm": "^0.45.4",
+    "exceljs": "^4.4.0",
+    "katanakit-js": "^7.2.0",
+    "nodemailer": "^10.4.0",
+    "nuxt": "^4.6.4",
+    "pg": "^8.23.1",
+    "tailwindcss": "^4.3.5",
+    "vue": "^3.5.45",
+    "vue-router": "^5.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.152",
+    "@nuxt/eslint": "^1.17.0",
+    "@playwright/test": "^1.65.0",
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^10.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "typescript": "5.9",
+    "vitest": "^5.1.0",
+    "vue-tsc": "^3.3.14"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix"
+    ]
+  }
+}

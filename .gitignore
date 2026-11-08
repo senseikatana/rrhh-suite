@@ -1,0 +1,16 @@
+node_modules
+.nuxt
+.output
+.data
+data/
+backups/
+dist
+coverage
+test-results
+playwright-report
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+.neon

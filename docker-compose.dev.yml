@@ -1,0 +1,24 @@
+# PostgreSQL local para desarrollo y tests.
+#   docker compose -f docker-compose.dev.yml up -d
+# Después: DATABASE_URL=postgresql://postgres:postgres@localhost:5433/rrhh
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: rrhh-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: rrhh
+    ports:
+      - '5433:5432'
+    volumes:
+      - rrhh-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d rrhh']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  rrhh-postgres-data:

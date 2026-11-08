@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    container_name: rrhh-suite
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      MIGRATIONS_PATH: /app/migrations
+      TZ: Europe/Madrid
+    volumes:
+      - rrhh-attachments:/app/data/attachments
+
+volumes:
+  rrhh-attachments:
